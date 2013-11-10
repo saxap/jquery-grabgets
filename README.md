@@ -5,7 +5,7 @@ Grab GET parameters from url and put, select and check elements of selected form
 
 Requires jQuery v1.2 or later
 
-<a href="http://dontforget.pro/examples/get-put-form.php" target="blank">EXAMPLE</a>
+<a href="http://dontforget.pro/examples/get-put-form.php" target="blank">DEMO</a>
 
 Capabilities:
 ==============
@@ -28,4 +28,4 @@ $(document).ready(function() {
 
 ==============
 
-additional description (in russian): 
+additional description (in russian): http://dontforget.pro/javascript/jquery-plagin-dlya-parsinga-url-stroki-s-get-parametrami-i-vstavki-znacheniy-v-formu/
