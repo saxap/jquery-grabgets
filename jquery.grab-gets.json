@@ -1,0 +1,39 @@
+{
+    "name": "grab-gets",
+    "title": "jQuery Grab-Gets",
+    "description": "jQuery plugin for grabbing GET parameters from url and put, select and check elements of selected form",
+    "keywords": [
+        "form",
+        "GET",
+        "input",
+        "select",
+        "checkbox",
+        "radio"
+    ],
+    "version": "1.0.1",
+    "author": {
+        "name": "Sergey Astafev (saxa:p)",
+        "url": "http://dontforget.pro"
+        "email": "saxap@bk.ru",
+    },
+    "maintainers": [
+        {
+            "name": "Clever AS company",
+            "email": "info@clever-as.ru",
+            "url": "http://clever-as.ru"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/saxap/jquery-grabgets/issues",
+    "homepage": "http://dontforget.pro/javascript/jquery-plagin-dlya-parsinga-url-stroki-s-get-parametrami-i-vstavki-znacheniy-v-formu/",
+    "docs": "https://github.com/saxap/jquery-grabgets",
+    "download": "http://code.jquery.com/#grab-gets",
+    "dependencies": {
+        "jquery": ">=1.2.6"
+    }
+}
