@@ -32,7 +32,7 @@
     "bugs": "https://github.com/saxap/jquery-grabgets/issues",
     "homepage": "http://dontforget.pro/javascript/jquery-plagin-dlya-parsinga-url-stroki-s-get-parametrami-i-vstavki-znacheniy-v-formu/",
     "docs": "https://github.com/saxap/jquery-grabgets",
-    "download": "http://code.jquery.com/#grab-gets",
+    "download": "https://github.com/saxap/jquery-grabgets/archive/master.zip",
     "dependencies": {
         "jquery": ">=1.2.6"
     }
