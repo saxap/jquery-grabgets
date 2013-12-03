@@ -4,6 +4,7 @@
  * version: 1.0.1-2013.11.10
  * Requires jQuery v1.2 or later
  * Autor: saxa:p (http://dontforget.pro)
+ * Email: saxap@bk.ru
  * Examples and documentation at: http://malsup.com/jquery/form/
  * Project repository: https://github.com/malsup/form
  * Dual licensed under the MIT and GPL licenses.
