@@ -1,7 +1,7 @@
 /*!
  * jQuery grabget plugin
  * Description: Grab GET parameters from url and put, select and check elements of selected form
- * version: 1.0.4-2013.22.12
+ * version: 1.0.6-2014.16.07
  * Requires jQuery v1.2 or later
  * Autor: saxa:p (http://dontforget.pro)
  * Examples and documentation at: http://malsup.com/jquery/form/
@@ -25,15 +25,14 @@
           h0 = hash[0];
           if (!re) {
           vars.push(hash[0]);
-          vars[hash[0]] = hash[1];
+          vars[decodeURIComponent(hash[0]).replace(/\+/g, ' ')] = (hash[1] ? decodeURIComponent(hash[1].replace(/\+/g, ' ')) : hash[1]);
           } else {            
-          vars[decodeURIComponent(hash[1])] = decodeURIComponent(h0);
+          vars[decodeURIComponent(hash[1]).replace(/\+/g, ' ')] = decodeURIComponent(h0.replace(/\+/g, ' '));
           }
         }
         return vars;
       },
       getUrlVar: function(name){
-        name = encodeURIComponent(name);
         return $.getUrlVars()[name];
       }
     });
@@ -44,7 +43,6 @@
           var iname = $(this).attr('name');
           var ival  = $.getUrlVar(iname);
           if (ival) {
-            ival = decodeURIComponent(ival);
             $(this).val(ival);
           }
         });
@@ -53,7 +51,6 @@
             var iname = $(this).attr('name');
             var ival  = $.getUrlVar(iname);
             if (ival) {
-              ival = decodeURIComponent(ival);
               $(this).val(ival);
             }
         });
@@ -62,7 +59,6 @@
           var iname = $(this).attr('name');
           var ival  = $.getUrlVar(iname);
           if (ival) {
-            ival = decodeURIComponent(ival);
             $(this).html(ival);
           }
         });
@@ -72,7 +68,7 @@
           $(this).find('option').each( function() {
            var ival = $(this).val();
             if ( arr[ival] == iname ) {
-              $(this).attr('selected', 'selected');
+              $(this).prop('selected', true)
             }
           });
         });
