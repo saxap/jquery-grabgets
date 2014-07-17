@@ -1,7 +1,7 @@
 /*!
  * jQuery grabget plugin
  * Description: Grab GET parameters from url and put, select and check elements of selected form
- * version: 1.1-2014.17.07
+ * version: 1.1.1-2014.17.07
  * Requires jQuery v1.2 or later
  * Autor: saxa:p (http://dontforget.pro)
  * Examples and documentation at: http://malsup.com/jquery/form/
