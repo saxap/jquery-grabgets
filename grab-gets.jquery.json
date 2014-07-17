@@ -1,7 +1,7 @@
 {
     "name": "grab-gets",
     "title": "jQuery Grab-Gets",
-    "description": "jQuery plugin for grabbing GET parameters from url and put, select and check elements of selected form",
+    "description": "jQuery plugin for grabbing and parsing GET parameters from url and put, select and check elements of selected form",
     "keywords": [
         "form",
         "GET",
