@@ -1,7 +1,7 @@
 /*!
  * jQuery grabget plugin
  * Description: Grab GET parameters from url and put, select and check elements of selected form
- * version: 1.0.6-2014.16.07
+ * version: 1.1-2014.17.07
  * Requires jQuery v1.2 or later
  * Autor: saxa:p (http://dontforget.pro)
  * Examples and documentation at: http://malsup.com/jquery/form/
@@ -15,33 +15,32 @@
       hidden: true
     }, options);
     $.extend({
-      getUrlVars: function(re){
+      getUrlVars: function(){
         var vars = [], hash;
-        var h0 = '';
         var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        var h0,h1;
         for(var i = 0; i < hashes.length; i++)
         {
           hash = hashes[i].split('=');
-          h0 = hash[0];
-          if (!re) {
-          vars.push(hash[0]);
-          vars[decodeURIComponent(hash[0]).replace(/\+/g, ' ')] = (hash[1] ? decodeURIComponent(hash[1].replace(/\+/g, ' ')) : hash[1]);
-          } else {            
-          vars[decodeURIComponent(hash[1]).replace(/\+/g, ' ')] = decodeURIComponent(h0.replace(/\+/g, ' '));
+          h0 = decodeURIComponent(hash[0]).replace(/\+/g, ' ');
+          h1 = (hash[1] ? decodeURIComponent(hash[1].replace(/\+/g, ' ')) : hash[1]);
+          if (vars[h0]) { 
+            if (!$.isArray(vars[h0])) vars[h0] = [vars[h0]];
+            vars[h0].push(h1);
+          } else {
+            vars[h0] = h1;
           }
         }
         return vars;
-      },
-      getUrlVar: function(name){
-        return $.getUrlVars()[name];
       }
     });
     var form = $(this);
     var make = function(){
+      var arr = $.getUrlVars();
       if (form.length != 0) {
         form.find('input[type="text"]').each( function() {
           var iname = $(this).attr('name');
-          var ival  = $.getUrlVar(iname);
+          var ival  = arr[iname];
           if (ival) {
             $(this).val(ival);
           }
@@ -49,7 +48,7 @@
         if ( options.hidden ) {
             form.find('input[type="hidden"]').each( function() {
             var iname = $(this).attr('name');
-            var ival  = $.getUrlVar(iname);
+            var ival  = arr[iname];
             if (ival) {
               $(this).val(ival);
             }
@@ -57,17 +56,16 @@
         }
         form.find('textarea').each( function() {
           var iname = $(this).attr('name');
-          var ival  = $.getUrlVar(iname);
+          var ival  = arr[iname];
           if (ival) {
             $(this).html(ival);
           }
         });
-        var arr = $.getUrlVars('1');
         form.find('select').each( function() {
           var iname = $(this).attr('name');
           $(this).find('option').each( function() {
            var ival = $(this).val();
-            if ( arr[ival] == iname ) {
+            if ( arr[iname] == ival || $.inArray(ival, arr[iname]) != -1 ) {
               $(this).prop('selected', true)
             }
           });
@@ -75,7 +73,7 @@
         form.find('input[type="checkbox"], input[type="radio"]').each( function() {
           var iname = $(this).attr('name');
           var ival = $(this).val();
-          if ( arr[ival] == iname ) {
+          if ( arr[iname] == ival || $.inArray(ival, arr[iname]) != -1 ) {
             $(this).attr('checked', 'checked');
           }
         });

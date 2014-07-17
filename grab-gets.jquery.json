@@ -8,9 +8,10 @@
         "input",
         "select",
         "checkbox",
-        "radio"
+        "radio",
+        "multiple select"
     ],
-    "version": "1.0.8",
+    "version": "1.1",
     "author": {
         "name": "Sergey Astafev (saxa:p)",
         "url": "http://dontforget.pro",
