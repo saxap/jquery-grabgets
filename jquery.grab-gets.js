@@ -1,8 +1,8 @@
 /*!
  * jQuery grabget plugin
  * Description: Grab GET parameters from url and put, select and check elements of selected form
- * version: 1.1.2-2014.17.07
- * Requires jQuery v1.2 or later
+ * version: 1.2-2014.02.11
+ * Requires jQuery v1.6 or later
  * Autor: saxa:p (http://dontforget.pro)
  * Examples and documentation at: http://malsup.com/jquery/form/
  * Project repository: https://github.com/malsup/form
@@ -38,7 +38,7 @@
     var make = function(){
       var arr = $.getUrlVars();
       if (form.length != 0) {
-        form.find('input[type="text"]').each( function() {
+        form.find('input[type="text"], input[type="number"], input[type="date"], input[type="color"], input[type="range"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="search"], input[type="tel"], input[type="url"]').each( function() {
           var iname = $(this).attr('name');
           var ival  = arr[iname];
           if (ival) {

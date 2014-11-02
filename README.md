@@ -1,9 +1,9 @@
-jquery-GrabGets by <a href="http://dontforget.pro" target="blank">saxa:p</a>
+jquery-GrabGets 
 ==============
 
 Grab and parse GET parameters from url and put, select and check elements of selected form
 
-Requires jQuery v1.2 or later
+Requires jQuery v1.6 or later
 
 <a href="http://dontforget.pro/examples/get-put-form.php" target="blank">DEMO</a>
 
