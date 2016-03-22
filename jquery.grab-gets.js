@@ -1,7 +1,7 @@
 /*!
  * jQuery grabget plugin
  * Description: Grab GET parameters from url and put, select and check elements of selected form
- * version: 1.2-2014.02.11
+ * version: 1.3-2016.03.22
  * Requires jQuery v1.6 or later
  * Autor: saxa:p (http://dontforget.pro)
  * Dual licensed under the MIT and GPL licenses.
@@ -39,6 +39,7 @@
         form.find('input[type="text"], input[type="number"], input[type="date"], input[type="color"], input[type="range"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="search"], input[type="tel"], input[type="url"]').each( function() {
           var iname = $(this).attr('name');
           var ival  = arr[iname];
+          if ($.isArray(ival)) ival = ival[form.find('input[name="'+iname+'"]').index($(this))];
           if (ival) {
             $(this).val(ival);
           }
@@ -47,6 +48,7 @@
             form.find('input[type="hidden"]').each( function() {
             var iname = $(this).attr('name');
             var ival  = arr[iname];
+            if ($.isArray(ival)) ival = ival[form.find('input[type="hidden"][name="'+iname+'"]').index($(this))];
             if (ival) {
               $(this).val(ival);
             }
@@ -55,15 +57,18 @@
         form.find('textarea').each( function() {
           var iname = $(this).attr('name');
           var ival  = arr[iname];
+          if ($.isArray(ival)) ival = ival[form.find('textarea[name="'+iname+'"]').index($(this))];
           if (ival) {
             $(this).html(ival);
           }
         });
         form.find('select').each( function() {
           var iname = $(this).attr('name');
+          var vals = arr[iname];
+          if ($.isArray(vals) && !$(this).attr('multiple')) vals = vals[form.find('select[name="'+iname+'"]').index($(this))]; // if we have arr of vals - we need get element with index = index of select with same name
           $(this).find('option').each( function() {
-           var ival = $(this).val();
-            if ( arr[iname] == ival || $.inArray(ival, arr[iname]) != -1 ) {
+            var ival = $(this).val();
+            if ( vals == ival || $.inArray(ival, vals) != -1 ) {
               $(this).prop('selected', true)
             }
           });

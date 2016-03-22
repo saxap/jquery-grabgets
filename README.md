@@ -16,6 +16,8 @@ Capabilities:
 
 - Friendly with special and cyrillic characters
 
+- Work with same name inputs (exclude multiple selects)
+
 Call:
 ==============
 <pre>
